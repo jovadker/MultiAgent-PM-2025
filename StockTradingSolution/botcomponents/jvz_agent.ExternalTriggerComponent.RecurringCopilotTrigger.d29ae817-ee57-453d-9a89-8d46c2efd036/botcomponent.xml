@@ -1,0 +1,12 @@
+<botcomponent schemaname="jvz_agent.ExternalTriggerComponent.RecurringCopilotTrigger.d29ae817-ee57-453d-9a89-8d46c2efd036">
+  <componenttype>17</componenttype>
+  <description>Create a trigger to automatically call your copilot repeatedly</description>
+  <iconurl>https://preview.content.powerapps.com/resource/makerx/static/media/RecurrenceIcon.816b06a2.svg</iconurl>
+  <iscustomizable>0</iscustomizable>
+  <name>Recurring Copilot Trigger</name>
+  <parentbotid>
+    <schemaname>jvz_agent</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

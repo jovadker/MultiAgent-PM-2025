@@ -1,0 +1,12 @@
+<botcomponent schemaname="mspva_2a0dd7e8-8ca9-4811-a876-0ae74ca76b8d">
+  <category>Testing</category>
+  <componenttype>19</componenttype>
+  <description>Evaluate InvestorAgent</description>
+  <iscustomizable>0</iscustomizable>
+  <name>Evaluate InvestorAgent</name>
+  <parentbotid>
+    <schemaname>jvz_agent_w0713v</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

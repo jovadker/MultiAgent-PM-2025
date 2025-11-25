@@ -1,0 +1,11 @@
+<botcomponent schemaname="jvz_agent_iA9-Jx.topic.httpsfinanceyahoocom_bRuznVaLfrppWFJmh_rQE">
+  <componenttype>16</componenttype>
+  <description>This knowledge source searches information on the web found in https://finance.yahoo.com website</description>
+  <iscustomizable>0</iscustomizable>
+  <name>https://finance.yahoo.com</name>
+  <parentbotid>
+    <schemaname>jvz_agent_iA9-Jx</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

@@ -1,0 +1,15 @@
+<botcomponent schemaname="mspva_d3e70e71-95f2-45fb-a2d1-0a6d6559ff3b">
+  <category>Testing</category>
+  <componenttype>19</componenttype>
+  <description>Can you help me analyze the potential returns on a real estate investment?</description>
+  <iscustomizable>0</iscustomizable>
+  <name>Can you help me analyze the potential returns on a real estate investment?</name>
+  <parentbotcomponentid>
+    <schemaname>mspva_2a0dd7e8-8ca9-4811-a876-0ae74ca76b8d</schemaname>
+  </parentbotcomponentid>
+  <parentbotid>
+    <schemaname>jvz_agent_w0713v</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

@@ -1,0 +1,15 @@
+<botcomponent schemaname="mspva_84dbc19f-b382-4f93-abda-5382074a3e8b">
+  <category>Testing</category>
+  <componenttype>19</componenttype>
+  <description>How do I sign in to access my investment portfolio?</description>
+  <iscustomizable>0</iscustomizable>
+  <name>How do I sign in to access my investment portfolio?</name>
+  <parentbotcomponentid>
+    <schemaname>mspva_2a0dd7e8-8ca9-4811-a876-0ae74ca76b8d</schemaname>
+  </parentbotcomponentid>
+  <parentbotid>
+    <schemaname>jvz_agent_w0713v</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

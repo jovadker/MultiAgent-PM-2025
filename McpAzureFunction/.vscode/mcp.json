@@ -1,0 +1,16 @@
+{
+	"servers": {
+		"my-mcp-server-aitour": {
+			"url": "http://localhost:7071/runtime/webhooks/mcp",
+			"type": "http"
+		},
+		"my-mcp-server-aitour-remote": {
+			"url": "https://function-mcpagent-cya5gfemgkbnbqhd.swedencentral-01.azurewebsites.net/runtime/webhooks/mcp",
+			"type": "http",
+			"headers": {
+				"x-functions-key":""
+			}
+		}
+	},
+	"inputs": []
+}

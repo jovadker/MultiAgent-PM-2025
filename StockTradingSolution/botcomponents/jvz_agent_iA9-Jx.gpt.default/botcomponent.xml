@@ -1,0 +1,10 @@
+<botcomponent schemaname="jvz_agent_iA9-Jx.gpt.default">
+  <componenttype>15</componenttype>
+  <iscustomizable>0</iscustomizable>
+  <name>StockTraderAgent</name>
+  <parentbotid>
+    <schemaname>jvz_agent_iA9-Jx</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

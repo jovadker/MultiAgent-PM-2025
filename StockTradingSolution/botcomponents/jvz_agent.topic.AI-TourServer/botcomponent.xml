@@ -1,0 +1,11 @@
+<botcomponent schemaname="jvz_agent.topic.AI-TourServer">
+  <componenttype>9</componenttype>
+  <description>Use this tool to manage greetings and do some math calculations</description>
+  <iscustomizable>0</iscustomizable>
+  <name>AI-Tour Server</name>
+  <parentbotid>
+    <schemaname>jvz_agent</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

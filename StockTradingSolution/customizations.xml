@@ -1,0 +1,97 @@
+<ImportExportXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.25111.138" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.25112.00144">
+  <Entities></Entities>
+  <Roles></Roles>
+  <Workflows>
+    <Workflow WorkflowId="{76d6df76-f0c3-f011-8543-7ced8d7047cf}" Name="Recurring Copilot Trigger" Description="Create a trigger to automatically call your copilot repeatedly">
+      <JsonFileName>/Workflows/RecurringCopilotTrigger-76D6DF76-F0C3-F011-8543-7CED8D7047CF.json</JsonFileName>
+      <Type>1</Type>
+      <Subprocess>0</Subprocess>
+      <Category>5</Category>
+      <Mode>0</Mode>
+      <Scope>4</Scope>
+      <OnDemand>0</OnDemand>
+      <TriggerOnCreate>0</TriggerOnCreate>
+      <TriggerOnDelete>0</TriggerOnDelete>
+      <AsyncAutodelete>0</AsyncAutodelete>
+      <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
+      <StateCode>1</StateCode>
+      <StatusCode>2</StatusCode>
+      <RunAs>1</RunAs>
+      <IsTransacted>1</IsTransacted>
+      <IntroducedVersion>1.0.0.0</IntroducedVersion>
+      <IsCustomizable>1</IsCustomizable>
+      <BusinessProcessType>0</BusinessProcessType>
+      <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
+      <ModernFlowType>0</ModernFlowType>
+      <PrimaryEntity>none</PrimaryEntity>
+      <LocalizedNames>
+        <LocalizedName languagecode="1033" description="Recurring Copilot Trigger" />
+      </LocalizedNames>
+      <Descriptions>
+        <Description languagecode="1033" description="Create a trigger to automatically call your copilot repeatedly" />
+      </Descriptions>
+    </Workflow>
+  </Workflows>
+  <FieldSecurityProfiles></FieldSecurityProfiles>
+  <Templates />
+  <EntityMaps />
+  <EntityRelationships />
+  <OrganizationSettings />
+  <optionsets />
+  <CustomControls />
+  <EntityDataProviders />
+  <Connectors>
+    <Connector>
+      <connectorid>dc74afae-a4c5-44c4-91f0-ccf196e3c3c6</connectorid>
+      <description>Use this tool to manage greetings and do some math calculations</description>
+      <displayname>AI-Tour Server</displayname>
+      <iconbrandcolor></iconbrandcolor>
+      <name>jvz_5Fai-2Dtour-20server</name>
+      <connectortype>1</connectortype>
+      <openapidefinition>/Connector/jvz_5Fai-2Dtour-20server_openapidefinition.json</openapidefinition>
+      <connectionparameters>/Connector/jvz_5Fai-2Dtour-20server_connectionparameters.json</connectionparameters>
+      <policytemplateinstances>/Connector/jvz_5Fai-2Dtour-20server_policytemplateinstances.json</policytemplateinstances>
+      <iconblob>/Connector/jvz_5Fai-2Dtour-20server_iconblob.Png</iconblob>
+    </Connector>
+  </Connectors>
+  <connectionreferences>
+    <connectionreference connectionreferencelogicalname="jvz_agent.shared_jvz-5fai-2dtour-20server-5f6c163a7ee9555534.af1e6603bdca4088a298961092311d7e">
+      <connectionreferencedisplayname>jvz_agent.shared_jvz-5fai-2dtour-20server-5f6c163a7ee9555534.af1e6603bdca4088a298961092311d7e</connectionreferencedisplayname>
+      <connectorid>/providers/Microsoft.PowerApps/apis/shared_jvz-5fai-2dtour-20server-5f6c163a7ee9555534</connectorid>
+      <customconnectorid>
+        <connectorid>dc74afae-a4c5-44c4-91f0-ccf196e3c3c6</connectorid>
+      </customconnectorid>
+      <iscustomizable>0</iscustomizable>
+      <promptingbehavior>0</promptingbehavior>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </connectionreference>
+    <connectionreference connectionreferencelogicalname="jvz_agent.shared_office365.aef404e4770743f39d2318ca82b26f5e">
+      <connectionreferencedisplayname>jvz_agent.shared_office365.aef404e4770743f39d2318ca82b26f5e</connectionreferencedisplayname>
+      <connectorid>/providers/Microsoft.PowerApps/apis/shared_office365</connectorid>
+      <iscustomizable>0</iscustomizable>
+      <promptingbehavior>0</promptingbehavior>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </connectionreference>
+    <connectionreference connectionreferencelogicalname="jvz_agent_iA9-Jx.shared_computeroperator.85c461eb6a634aecbdc1593825a081d1">
+      <connectionreferencedisplayname>jvz_agent_iA9-Jx.shared_computeroperator.85c461eb6a634aecbdc1593825a081d1</connectionreferencedisplayname>
+      <connectorid>/providers/Microsoft.PowerApps/apis/shared_computeroperator</connectorid>
+      <iscustomizable>0</iscustomizable>
+      <promptingbehavior>0</promptingbehavior>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </connectionreference>
+    <connectionreference connectionreferencelogicalname="jvz_sharedmicrosoftcopilotstudio_e5366">
+      <connectionreferencedisplayname>Microsoft Copilot Studio StockTradingSolution-e5366</connectionreferencedisplayname>
+      <connectorid>/providers/Microsoft.PowerApps/apis/shared_microsoftcopilotstudio</connectorid>
+      <iscustomizable>1</iscustomizable>
+      <promptingbehavior>0</promptingbehavior>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </connectionreference>
+  </connectionreferences>
+  <Languages>
+    <Language>1033</Language>
+  </Languages>
+</ImportExportXml>

@@ -1,0 +1,14 @@
+kind: TestCaseDefinition
+transcriptDefinition:
+  testActivities:
+    - kind: SendUserActivity
+      originType: Generated
+      activity: What are the risks involved in cryptocurrency investments?
+      activityAssertions:
+        - kind: AbstentionAssertion
+
+        - kind: RelevanceAssertion
+
+        - kind: CompletenessAssertion
+
+        - kind: GroundednessAssertion

@@ -1,0 +1,15 @@
+<botcomponent schemaname="mspva_5dfa460e-75e5-482b-a8e1-70a50d9cbccf">
+  <category>Testing</category>
+  <componenttype>19</componenttype>
+  <description>Can you boost my understanding of sustainable investing?</description>
+  <iscustomizable>0</iscustomizable>
+  <name>Can you boost my understanding of sustainable investing?</name>
+  <parentbotcomponentid>
+    <schemaname>mspva_2a0dd7e8-8ca9-4811-a876-0ae74ca76b8d</schemaname>
+  </parentbotcomponentid>
+  <parentbotid>
+    <schemaname>jvz_agent_w0713v</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

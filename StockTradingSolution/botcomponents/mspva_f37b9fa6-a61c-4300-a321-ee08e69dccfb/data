@@ -1,0 +1,14 @@
+kind: TestCaseDefinition
+transcriptDefinition:
+  testActivities:
+    - kind: SendUserActivity
+      originType: Generated
+      activity: What are the current market trends for tech stocks?
+      activityAssertions:
+        - kind: AbstentionAssertion
+
+        - kind: RelevanceAssertion
+
+        - kind: CompletenessAssertion
+
+        - kind: GroundednessAssertion

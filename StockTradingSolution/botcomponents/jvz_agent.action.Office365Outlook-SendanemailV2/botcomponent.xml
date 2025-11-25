@@ -1,0 +1,10 @@
+<botcomponent schemaname="jvz_agent.action.Office365Outlook-SendanemailV2">
+  <componenttype>9</componenttype>
+  <iscustomizable>0</iscustomizable>
+  <name>Office 365 Outlook - Send an email (V2)</name>
+  <parentbotid>
+    <schemaname>jvz_agent</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

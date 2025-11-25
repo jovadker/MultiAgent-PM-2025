@@ -1,0 +1,15 @@
+<botcomponent schemaname="mspva_1ec6b36f-ecbd-4db4-9f8a-ad95cca81628">
+  <category>Testing</category>
+  <componenttype>19</componenttype>
+  <description>How can I diversify my investment portfolio?</description>
+  <iscustomizable>0</iscustomizable>
+  <name>How can I diversify my investment portfolio?</name>
+  <parentbotcomponentid>
+    <schemaname>mspva_2a0dd7e8-8ca9-4811-a876-0ae74ca76b8d</schemaname>
+  </parentbotcomponentid>
+  <parentbotid>
+    <schemaname>jvz_agent_w0713v</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

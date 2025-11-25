@@ -1,0 +1,10 @@
+<botcomponent schemaname="jvz_agent.gpt.default">
+  <componenttype>15</componenttype>
+  <iscustomizable>0</iscustomizable>
+  <name>PortfolioManagerAgent</name>
+  <parentbotid>
+    <schemaname>jvz_agent</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

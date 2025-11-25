@@ -1,0 +1,14 @@
+kind: TestCaseDefinition
+transcriptDefinition:
+  testActivities:
+    - kind: SendUserActivity
+      originType: Generated
+      activity: I want to start over and review my investment strategy from scratch.
+      activityAssertions:
+        - kind: AbstentionAssertion
+
+        - kind: RelevanceAssertion
+
+        - kind: CompletenessAssertion
+
+        - kind: GroundednessAssertion

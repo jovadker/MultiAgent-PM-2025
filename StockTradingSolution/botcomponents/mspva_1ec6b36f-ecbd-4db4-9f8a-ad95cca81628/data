@@ -1,0 +1,14 @@
+kind: TestCaseDefinition
+transcriptDefinition:
+  testActivities:
+    - kind: SendUserActivity
+      originType: Generated
+      activity: How can I diversify my investment portfolio?
+      activityAssertions:
+        - kind: AbstentionAssertion
+
+        - kind: RelevanceAssertion
+
+        - kind: CompletenessAssertion
+
+        - kind: GroundednessAssertion

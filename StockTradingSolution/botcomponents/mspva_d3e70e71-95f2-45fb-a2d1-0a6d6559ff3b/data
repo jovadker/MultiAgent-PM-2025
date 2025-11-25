@@ -1,0 +1,14 @@
+kind: TestCaseDefinition
+transcriptDefinition:
+  testActivities:
+    - kind: SendUserActivity
+      originType: Edited
+      activity: Can you help me analyze the potential returns on a real estate investment?
+      activityAssertions:
+        - kind: AbstentionAssertion
+
+        - kind: RelevanceAssertion
+
+        - kind: CompletenessAssertion
+
+        - kind: GroundednessAssertion

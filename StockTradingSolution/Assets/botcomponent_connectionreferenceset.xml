@@ -1,0 +1,11 @@
+<botcomponent_connectionreferenceset>
+  <botcomponent_connectionreference botcomponentid.schemaname="jvz_agent.action.Office365Outlook-SendanemailV2" connectionreferenceid.connectionreferencelogicalname="jvz_agent.shared_office365.aef404e4770743f39d2318ca82b26f5e">
+    <iscustomizable>1</iscustomizable>
+  </botcomponent_connectionreference>
+  <botcomponent_connectionreference botcomponentid.schemaname="jvz_agent.topic.AI-TourServer" connectionreferenceid.connectionreferencelogicalname="jvz_agent.shared_jvz-5fai-2dtour-20server-5f6c163a7ee9555534.af1e6603bdca4088a298961092311d7e">
+    <iscustomizable>1</iscustomizable>
+  </botcomponent_connectionreference>
+  <botcomponent_connectionreference botcomponentid.schemaname="jvz_agent_iA9-Jx.action.Computeruse-Computeruse" connectionreferenceid.connectionreferencelogicalname="jvz_agent_iA9-Jx.shared_computeroperator.85c461eb6a634aecbdc1593825a081d1">
+    <iscustomizable>1</iscustomizable>
+  </botcomponent_connectionreference>
+</botcomponent_connectionreferenceset>

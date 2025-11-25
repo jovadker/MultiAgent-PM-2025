@@ -1,0 +1,12 @@
+kind: TaskDialog
+modelDisplayName: AI-Tour Server
+modelDescription: Use this tool to manage greetings and do some math calculations
+action:
+  kind: InvokeExternalAgentTaskAction
+  connectionReference: jvz_agent.shared_jvz-5fai-2dtour-20server-5f6c163a7ee9555534.af1e6603bdca4088a298961092311d7e
+  connectionProperties:
+    mode: Maker
+
+  operationDetails:
+    kind: ModelContextProtocolMetadata
+    operationId: InvokeServer

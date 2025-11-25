@@ -1,0 +1,20 @@
+kind: TaskDialog
+inputs:
+  - kind: ManualTaskInput
+    propertyName: To
+    value: admin@M365x21942969.onmicrosoft.com
+
+modelDisplayName: Send an email (V2)
+modelDescription: This operation sends an email message.
+outputs:
+  - propertyName: Response
+
+action:
+  kind: InvokeConnectorTaskAction
+  connectionReference: jvz_agent.shared_office365.aef404e4770743f39d2318ca82b26f5e
+  connectionProperties:
+    mode: Maker
+
+  operationId: SendEmailV2
+
+outputMode: All

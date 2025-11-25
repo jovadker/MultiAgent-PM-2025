@@ -1,0 +1,5 @@
+<botcomponent_workflowset>
+  <botcomponent_workflow botcomponentid.schemaname="jvz_agent.ExternalTriggerComponent.RecurringCopilotTrigger.d29ae817-ee57-453d-9a89-8d46c2efd036" workflowid.workflowid="76d6df76-f0c3-f011-8543-7ced8d7047cf">
+    <iscustomizable>1</iscustomizable>
+  </botcomponent_workflow>
+</botcomponent_workflowset>

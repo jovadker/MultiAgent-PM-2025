@@ -1,0 +1,8 @@
+kind: TaskDialog
+modelDisplayName: StockTraderAgent
+modelDescription: Stock trading agent
+action:
+  kind: InvokeConnectedAgentTaskAction
+  botSchemaName: jvz_agent_iA9-Jx
+  historyType:
+    kind: ConversationHistory

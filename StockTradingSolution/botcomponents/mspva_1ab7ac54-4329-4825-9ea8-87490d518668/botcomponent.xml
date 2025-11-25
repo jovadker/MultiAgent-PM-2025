@@ -1,0 +1,15 @@
+<botcomponent schemaname="mspva_1ab7ac54-4329-4825-9ea8-87490d518668">
+  <category>Testing</category>
+  <componenttype>19</componenttype>
+  <description>I want to start over and review my investment strategy from scratch.</description>
+  <iscustomizable>0</iscustomizable>
+  <name>I want to start over and review my investment strategy from scratch.</name>
+  <parentbotcomponentid>
+    <schemaname>mspva_2a0dd7e8-8ca9-4811-a876-0ae74ca76b8d</schemaname>
+  </parentbotcomponentid>
+  <parentbotid>
+    <schemaname>jvz_agent_w0713v</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

@@ -1,0 +1,11 @@
+<botcomponent schemaname="jvz_agent.InvokeConnectedAgentTaskAction.StockTraderAgent">
+  <componenttype>9</componenttype>
+  <description>f</description>
+  <iscustomizable>0</iscustomizable>
+  <name>StockTraderAgent</name>
+  <parentbotid>
+    <schemaname>jvz_agent</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

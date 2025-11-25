@@ -1,0 +1,28 @@
+kind: TaskDialog
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: stockNames
+    name: Stock names
+    description: Array of stock names of which current stock value shall be collected
+
+modelDisplayName: Computer use
+modelDescription: Use this tool to get real-time financial data for multiple stock values
+action:
+  kind: InvokeComputerUsingAgentTaskAction
+  connectionReference: jvz_agent_iA9-Jx.shared_computeroperator.85c461eb6a634aecbdc1593825a081d1
+  connectionProperties:
+    mode: Maker
+
+  operationId: ComputerOperatorInvokeMcpCua
+  instructions: |-
+    - Open Edge browser
+    - Search for the stock prices provided as inputs in the browser main page
+    - Capture the precise stock values in the Edge browser
+  inputType:
+    properties:
+      stockNames:
+        displayName: Stock names
+        description: Array of stock names of which current stock value shall be collected
+        isRequired: true
+        type: String
+        examples:

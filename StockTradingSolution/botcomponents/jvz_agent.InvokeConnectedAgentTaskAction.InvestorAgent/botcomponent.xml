@@ -1,0 +1,11 @@
+<botcomponent schemaname="jvz_agent.InvokeConnectedAgentTaskAction.InvestorAgent">
+  <componenttype>9</componenttype>
+  <description>Investor Agent</description>
+  <iscustomizable>0</iscustomizable>
+  <name>InvestorAgent</name>
+  <parentbotid>
+    <schemaname>jvz_agent</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

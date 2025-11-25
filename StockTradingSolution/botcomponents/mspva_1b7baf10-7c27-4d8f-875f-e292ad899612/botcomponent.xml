@@ -1,0 +1,15 @@
+<botcomponent schemaname="mspva_1b7baf10-7c27-4d8f-875f-e292ad899612">
+  <category>Testing</category>
+  <componenttype>19</componenttype>
+  <description>Can you compare mutual funds and ETFs for me?</description>
+  <iscustomizable>0</iscustomizable>
+  <name>Can you compare mutual funds and ETFs for me?</name>
+  <parentbotcomponentid>
+    <schemaname>mspva_2a0dd7e8-8ca9-4811-a876-0ae74ca76b8d</schemaname>
+  </parentbotcomponentid>
+  <parentbotid>
+    <schemaname>jvz_agent_w0713v</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

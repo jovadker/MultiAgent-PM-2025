@@ -1,0 +1,15 @@
+<botcomponent schemaname="mspva_3db015e9-709d-4782-9bb8-e8b193954f7f">
+  <category>Testing</category>
+  <componenttype>19</componenttype>
+  <description>What are the risks involved in cryptocurrency investments?</description>
+  <iscustomizable>0</iscustomizable>
+  <name>What are the risks involved in cryptocurrency investments?</name>
+  <parentbotcomponentid>
+    <schemaname>mspva_2a0dd7e8-8ca9-4811-a876-0ae74ca76b8d</schemaname>
+  </parentbotcomponentid>
+  <parentbotid>
+    <schemaname>jvz_agent_w0713v</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

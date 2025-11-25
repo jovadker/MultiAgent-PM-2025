@@ -1,0 +1,11 @@
+<botcomponent schemaname="jvz_agent_iA9-Jx.topic.httpswwwmsncomenusmoney_pXrnxUhQf3eZGGcp2DiQ8">
+  <componenttype>16</componenttype>
+  <description>This knowledge source searches information on the web to find real-time stock information</description>
+  <iscustomizable>0</iscustomizable>
+  <name>https://www.msn.com/en-us/money</name>
+  <parentbotid>
+    <schemaname>jvz_agent_iA9-Jx</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

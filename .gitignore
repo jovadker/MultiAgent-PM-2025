@@ -52,3 +52,9 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+McpAzureFunction/__azurite_db_blob__.json
+McpAzureFunction/__azurite_db_blob_extent__.json
+McpAzureFunction/__azurite_db_queue__.json
+McpAzureFunction/__azurite_db_queue_extent__.json
+McpAzureFunction/__azurite_db_table__.json
+McpAzureFunction/publish.zip

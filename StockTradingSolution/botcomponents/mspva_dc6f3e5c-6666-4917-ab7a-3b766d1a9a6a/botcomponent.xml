@@ -1,0 +1,15 @@
+<botcomponent schemaname="mspva_dc6f3e5c-6666-4917-ab7a-3b766d1a9a6a">
+  <category>Testing</category>
+  <componenttype>19</componenttype>
+  <description>Can you recommend some low-risk investment options for beginners?</description>
+  <iscustomizable>0</iscustomizable>
+  <name>Can you recommend some low-risk investment options for beginners?</name>
+  <parentbotcomponentid>
+    <schemaname>mspva_2a0dd7e8-8ca9-4811-a876-0ae74ca76b8d</schemaname>
+  </parentbotcomponentid>
+  <parentbotid>
+    <schemaname>jvz_agent_w0713v</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

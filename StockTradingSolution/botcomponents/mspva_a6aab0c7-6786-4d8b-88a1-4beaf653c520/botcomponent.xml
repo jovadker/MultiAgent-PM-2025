@@ -1,0 +1,15 @@
+<botcomponent schemaname="mspva_a6aab0c7-6786-4d8b-88a1-4beaf653c520">
+  <category>Testing</category>
+  <componenttype>19</componenttype>
+  <description>What should I do if I want to speak to a financial advisor?</description>
+  <iscustomizable>0</iscustomizable>
+  <name>What should I do if I want to speak to a financial advisor?</name>
+  <parentbotcomponentid>
+    <schemaname>mspva_2a0dd7e8-8ca9-4811-a876-0ae74ca76b8d</schemaname>
+  </parentbotcomponentid>
+  <parentbotid>
+    <schemaname>jvz_agent_w0713v</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

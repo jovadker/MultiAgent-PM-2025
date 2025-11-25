@@ -1,0 +1,8 @@
+kind: TaskDialog
+modelDisplayName: InvestorAgent
+modelDescription: Investor Agent
+action:
+  kind: InvokeConnectedAgentTaskAction
+  botSchemaName: jvz_agent_w0713v
+  historyType:
+    kind: ConversationHistory
