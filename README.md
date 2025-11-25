@@ -9,14 +9,51 @@ This repository contains a multi-agent system for stock trading and portfolio ma
 
 ## Architecture
 
+The solution uses a serverless architecture on Azure with AI capabilities powered by Azure AI Foundry:
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                   Power Platform                            │
+│  ┌──────────────────────────────────────────────────────┐  │
+│  │         Copilot Studio Agents                         │  │
+│  │  • PortfolioManagerAgent (Orchestrator)              │  │
+│  │  • StockTraderAgent (Execution)                      │  │
+│  │  • InvestorAgent (Analysis)                          │  │
+│  └──────────────────────────┬───────────────────────────┘  │
+└────────────────────────────┼──────────────────────────────┘
+                             │ HTTPS/MCP
+                             ▼
+┌─────────────────────────────────────────────────────────────┐
+│                    Azure Function                           │
+│              (Flex Consumption Plan)                        │
+│  ┌──────────────────────────────────────────────────────┐  │
+│  │       MCP Server (.NET 8 Isolated)                   │  │
+│  │  • MathTool (calculations)                           │  │
+│  │  • TranslateTool (AI translation)                    │  │
+│  └──────────────────────┬───────────────────────────────┘  │
+└──────────────────────────┼────────────────────────────────┘
+                           │ Azure OpenAI API
+                           ▼
+┌─────────────────────────────────────────────────────────────┐
+│           Azure AI Foundry (Cognitive Services)             │
+│  ┌──────────────────────────────────────────────────────┐  │
+│  │    DeepSeek-V3.1 Model Deployment                    │  │
+│  │  • Language Translation                              │  │
+│  │  • AI-powered reasoning                              │  │
+│  └──────────────────────────────────────────────────────┘  │
+└─────────────────────────────────────────────────────────────┘
+```
+
 ### 1. Azure Function - MCP Server (`McpAzureFunction`)
 
 The Azure Function implements a Model Context Protocol (MCP) server that exposes AI-powered tools and utilities. It's built on:
 
 - **.NET 8.0** with Azure Functions v4
+- **Flex Consumption Plan** for optimal scaling and cost efficiency
 - **Model Context Protocol (MCP)** for tool exposure
-- **Azure OpenAI** integration for AI capabilities
+- **Azure AI Foundry** integration for AI capabilities
 - **Isolated worker runtime** for better performance and security
+- **Managed Identity** authentication for secure resource access
 
 #### Available Tools
 
@@ -98,6 +135,42 @@ The `StockTradingSolution` contains three specialized agents working together:
    - Azure CLI
 
 ### Deployment Steps
+
+#### Quick Start: Automated Infrastructure Deployment
+
+**🚀 Fastest method using Bicep templates (5-10 minutes):**
+
+```powershell
+# Clone the repository
+git clone <repository-url>
+cd MultiAgent-PM-2025/infrastructure
+
+# Run the automated deployment script
+.\deploy.ps1
+
+# Or deploy with Azure CLI
+az login
+az deployment group create `
+  --resource-group AIFoundry.StockTrading.RG `
+  --template-file main.bicep `
+  --parameters main.parameters.json
+```
+
+**What gets deployed automatically:**
+- ✅ Azure Function (Flex Consumption, .NET 8)
+- ✅ AI Foundry with DeepSeek-V3.1 model
+- ✅ Storage Account with deployment container
+- ✅ Application Insights + Log Analytics
+- ✅ Managed Identity with RBAC roles
+- ✅ All configurations and settings
+
+**📖 For detailed infrastructure documentation, see: [infrastructure/README.md](infrastructure/README.md)**
+
+---
+
+#### Alternative: Manual Deployment Steps
+
+If you prefer step-by-step manual deployment:
 
 #### Part 1: Deploy Azure Function to Flex Consumption
 

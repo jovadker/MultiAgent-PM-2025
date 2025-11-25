@@ -1,0 +1,39 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "value": "eastus"
+    },
+    "functionAppRuntime": {
+      "value": "dotnet-isolated"
+    },
+    "functionAppRuntimeVersion": {
+      "value": "8.0"
+    },
+    "maximumInstanceCount": {
+      "value": 100
+    },
+    "instanceMemoryMB": {
+      "value": 2048
+    },
+    "resourceToken": {
+      "value": "stocktrading001"
+    },
+    "functionAppName": {
+      "value": "function-mcpagent"
+    },
+    "aiFoundryName": {
+      "value": "aifoundry-stocktrading"
+    },
+    "resourceGroupName": {
+      "value": "AIFoundry.StockTrading.RG"
+    },
+    "tenantId": {
+      "value": "9b7dd4f7-a403-4500-afad-77b33b78b1d8"
+    },
+    "environment": {
+      "value": "dev"
+    }
+  }
+}
