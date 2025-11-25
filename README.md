@@ -1,11 +1,37 @@
 # MultiAgent-PM-2025
 
+**Multi-Agent Portfolio Management System with Azure Functions (Flex Consumption) and AI Foundry**
+
+[![Azure](https://img.shields.io/badge/Azure-Functions%20Flex-0078D4?logo=microsoftazure)](https://azure.microsoft.com/en-us/products/functions)
+[![.NET](https://img.shields.io/badge/.NET-8.0-512BD4?logo=dotnet)](https://dotnet.microsoft.com/)
+[![Bicep](https://img.shields.io/badge/IaC-Bicep-0078D4?logo=microsoftazure)](https://learn.microsoft.com/azure/azure-resource-manager/bicep/)
+[![AI Foundry](https://img.shields.io/badge/AI-DeepSeek%20V3.1-00A4EF)](https://azure.microsoft.com/en-us/products/ai-services)
+
+## 🚀 Quick Start
+
+Deploy the complete infrastructure in ~8 minutes:
+
+```powershell
+cd infrastructure
+.\deploy.ps1
+```
+
+**What gets deployed:**
+- ✅ Azure Function (Flex Consumption, .NET 8)
+- ✅ AI Foundry with DeepSeek-V3.1 model
+- ✅ Storage, Monitoring, Managed Identity, RBAC
+
+📖 **Full guide**: [Deployment Documentation](#deployment) | [Infrastructure README](infrastructure/README.md)
+
+---
+
 ## Overview
 
-This repository contains a multi-agent system for stock trading and portfolio management, built using Microsoft Copilot Studio and Azure Functions. The solution consists of:
+This repository contains a multi-agent system for stock trading and portfolio management, built using Microsoft Copilot Studio and Azure Functions with Infrastructure-as-Code (Bicep) deployment. The solution consists of:
 
 1. **Azure Function App (MCP Server)** - A Model Context Protocol (MCP) server providing tools for mathematical operations and AI-powered translation
 2. **Power Platform Solution** - A Copilot Studio solution with three interconnected agents for stock trading and portfolio management
+3. **Bicep Infrastructure** - Complete Infrastructure-as-Code templates for automated Azure deployment
 
 ## Architecture
 
@@ -117,171 +143,141 @@ The `StockTradingSolution` contains three specialized agents working together:
 
 ### Prerequisites
 
-1. **Azure Subscription** with permissions to create:
-   - Function Apps
-   - Azure OpenAI resources
-   - Storage Accounts
-   - Application Insights (optional)
+#### For Azure Infrastructure (Bicep Deployment)
+1. **Azure Subscription** with permissions to:
+   - Create resource groups
+   - Deploy Azure Functions (Flex Consumption)
+   - Create Cognitive Services (AI Foundry)
+   - Create Storage Accounts
+   - Assign RBAC roles
+   - Create managed identities
 
-2. **Power Platform Environment** with:
+2. **Tools Required**:
+   - [Azure CLI](https://aka.ms/installazurecli) (version 2.50+)
+   - [Bicep CLI](https://learn.microsoft.com/azure/azure-resource-manager/bicep/install) (installed via Azure CLI)
+   - PowerShell 7+ (for deployment scripts)
+   - .NET 8.0 SDK (for function code compilation)
+
+3. **Azure Permissions**:
+   - Owner or Contributor + User Access Administrator role
+   - Required for creating role assignments
+
+#### For Power Platform (Copilot Studio)
+1. **Power Platform Environment** with:
    - Copilot Studio license
    - Entra ID (Azure AD) integration
    - Power Automate access
+   - Environment maker permissions
 
-3. **Development Tools**:
-   - .NET 8.0 SDK
-   - Azure Functions Core Tools
-   - PowerShell 7+
-   - Azure CLI
+2. **Tools Required**:
+   - [Power Platform CLI](https://aka.ms/PowerPlatformCLI) (optional, for automation)
 
 ### Deployment Steps
 
-#### Quick Start: Automated Infrastructure Deployment
+## Part 1: Deploy Azure Infrastructure (Bicep)
 
-**🚀 Fastest method using Bicep templates (5-10 minutes):**
+### 🚀 Automated Deployment (Recommended)
+
+The fastest and most reliable way to deploy all Azure resources is using the provided Bicep Infrastructure-as-Code templates.
+
+#### Prerequisites
+- Azure CLI installed
+- Azure subscription with appropriate permissions
+- Resource group creation rights
+
+#### Quick Deployment
 
 ```powershell
-# Clone the repository
-git clone <repository-url>
-cd MultiAgent-PM-2025/infrastructure
+# Navigate to infrastructure directory
+cd infrastructure
 
-# Run the automated deployment script
+# Validate the template (optional)
+.\validate.ps1
+
+# Preview changes with what-if (optional)
+.\deploy.ps1 -WhatIf
+
+# Deploy everything
 .\deploy.ps1
-
-# Or deploy with Azure CLI
-az login
-az deployment group create `
-  --resource-group AIFoundry.StockTrading.RG `
-  --template-file main.bicep `
-  --parameters main.parameters.json
 ```
 
-**What gets deployed automatically:**
-- ✅ Azure Function (Flex Consumption, .NET 8)
-- ✅ AI Foundry with DeepSeek-V3.1 model
-- ✅ Storage Account with deployment container
-- ✅ Application Insights + Log Analytics
-- ✅ Managed Identity with RBAC roles
-- ✅ All configurations and settings
+**OR** using Azure CLI directly:
 
-**📖 For detailed infrastructure documentation, see: [infrastructure/README.md](infrastructure/README.md)**
-
----
-
-#### Alternative: Manual Deployment Steps
-
-If you prefer step-by-step manual deployment:
-
-#### Part 1: Deploy Azure Function to Flex Consumption
-
-##### 1. Prepare Azure Resources
-
-```powershell
+```bash
 # Login to Azure
 az login --tenant 9b7dd4f7-a403-4500-afad-77b33b78b1d8
 
-# Set variables
-$resourceGroup = "AIFoundry.StockTrading.RG"
-$location = "eastus"
-$functionAppName = "function-mcpagent"
-$storageAccountName = "stmcpagent$(Get-Random -Maximum 9999)"
+# Create resource group
+az group create --name AIFoundry.StockTrading.RG --location eastus
 
-# Create resource group (if not exists)
-az group create --name $resourceGroup --location $location
-
-# Create storage account
-az storage account create `
-  --name $storageAccountName `
-  --resource-group $resourceGroup `
-  --location $location `
-  --sku Standard_LRS
-
-# Create Function App with Flex Consumption plan
-az functionapp create `
-  --name $functionAppName `
-  --resource-group $resourceGroup `
-  --storage-account $storageAccountName `
-  --runtime dotnet-isolated `
-  --runtime-version 8 `
-  --functions-version 4 `
-  --os-type Windows `
-  --consumption-plan-location $location
+# Deploy infrastructure
+az deployment group create \
+  --resource-group AIFoundry.StockTrading.RG \
+  --template-file infrastructure/main.bicep \
+  --parameters infrastructure/main.parameters.json
 ```
 
-##### 2. Configure Azure OpenAI Access
+#### What Gets Deployed
+
+The Bicep template automatically provisions:
+
+| Resource | Configuration | Purpose |
+|----------|--------------|----------|
+| **Azure Function** | Flex Consumption, .NET 8, Linux | MCP Server host |
+| **AI Foundry** | AIServices + DeepSeek-V3.1 | AI model deployment |
+| **Storage Account** | Standard_LRS, managed identity auth | Function runtime storage |
+| **Application Insights** | 30-day retention | Monitoring & telemetry |
+| **Log Analytics** | PerGB2018 tier | Log aggregation |
+| **Managed Identity** | User-assigned | Secure authentication |
+| **RBAC Roles** | Storage, AI, Monitoring | Least privilege access |
+
+⏱️ **Deployment time: ~8 minutes**
+
+#### Post-Deployment Verification
 
 ```powershell
-# Assign Managed Identity to Function App
-az functionapp identity assign `
-  --name $functionAppName `
-  --resource-group $resourceGroup
+# List deployed resources
+az resource list --resource-group AIFoundry.StockTrading.RG --output table
 
-# Get the Function App's Managed Identity ID
-$principalId = (az functionapp identity show `
-  --name $functionAppName `
-  --resource-group $resourceGroup `
-  --query principalId -o tsv)
+# Get Function App URL
+az functionapp show --name function-mcpagent \
+  --resource-group AIFoundry.StockTrading.RG \
+  --query defaultHostName --output tsv
 
-# Assign Cognitive Services OpenAI User role to the Function App
-# (Replace with your OpenAI resource details)
-$openAIResourceId = "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.CognitiveServices/accounts/{openai-name}"
-
-az role assignment create `
-  --assignee $principalId `
-  --role "Cognitive Services OpenAI User" `
-  --scope $openAIResourceId
+# Get AI Foundry endpoint
+az cognitiveservices account show \
+  --name aifoundry-stocktrading \
+  --resource-group AIFoundry.StockTrading.RG \
+  --query properties.endpoint --output tsv
 ```
 
-##### 3. Build and Deploy Function App
+#### Customization
 
-```powershell
-# Navigate to the function project directory
-cd .\McpAzureFunction
+To customize the deployment, edit `infrastructure/main.parameters.json`:
 
-# Build and publish
-dotnet publish -c Release
-
-# Deploy using the provided script
-.\deploy-function.ps1 -ResourceGroup $resourceGroup -FunctionAppName $functionAppName
-
-# Or use the main deployment script
-.\deploy.ps1
+```json
+{
+  "parameters": {
+    "location": { "value": "eastus" },
+    "functionAppRuntime": { "value": "dotnet-isolated" },
+    "maximumInstanceCount": { "value": 100 },
+    "instanceMemoryMB": { "value": 2048 },
+    "environment": { "value": "dev" }
+  }
+}
 ```
 
-##### 4. Configure Application Settings
+📖 **For detailed documentation, see: [infrastructure/README.md](infrastructure/README.md)**
 
-```powershell
-# Set Azure OpenAI configuration
-az functionapp config appsettings set `
-  --name $functionAppName `
-  --resource-group $resourceGroup `
-  --settings `
-    AZURE_OPENAI_ENDPOINT="https://aifoundry-stocktrading.openai.azure.com" `
-    AZURE_OPENAI_MODEL="DeepSeek-V3.1"
-```
+---
 
-##### 5. Verify Deployment
+### Manual Deployment (Alternative)
 
-```powershell
-# Check function app status
-az functionapp show `
-  --name $functionAppName `
-  --resource-group $resourceGroup `
-  --query state
+If you cannot use Bicep templates, follow the manual steps in [infrastructure/README.md](infrastructure/README.md#alternative-manual-deployment-steps).
 
-# List functions
-az functionapp function list `
-  --name $functionAppName `
-  --resource-group $resourceGroup
 
-# Get function app URL
-az functionapp show `
-  --name $functionAppName `
-  --resource-group $resourceGroup `
-  --query defaultHostName -o tsv
-```
 
-#### Part 2: Deploy to Power Platform / Copilot Studio
+## Part 2: Deploy to Power Platform / Copilot Studio
 
 ##### 1. Prepare the Solution File
 
@@ -471,27 +467,66 @@ az functionapp log tail `
 
 ## Troubleshooting
 
-### Common Issues
+### Infrastructure Deployment Issues
 
-1. **Function App not starting**:
-   - Check storage account connection
-   - Verify .NET 8.0 runtime is configured
-   - Review Application Insights logs
+1. **Bicep deployment fails**:
+   - Run `.\infrastructure\validate.ps1` to check template syntax
+   - Verify Azure CLI is authenticated: `az account show`
+   - Check region supports Flex Consumption (see [infrastructure/README.md](infrastructure/README.md))
+   - Ensure you have Owner or Contributor + User Access Administrator role
+
+2. **Name conflicts (storage/AI Foundry)**:
+   - Storage account names must be globally unique
+   - Change `resourceToken` parameter in `infrastructure/main.parameters.json`
+   - Try adding random suffix: `"stocktrading$(Get-Random -Maximum 999)"`
+
+3. **RBAC assignment failures**:
+   - Wait 2-3 minutes after identity creation
+   - Re-run deployment (it's idempotent)
+   - Verify permissions to create role assignments
+
+4. **AI Foundry model deployment fails**:
+   - Verify region supports AI Services
+   - Check Cognitive Services quota
+   - Ensure DeepSeek model available in your region
+
+### Function App Issues
+
+1. **Function not responding**:
+   - Check logs: `az functionapp log tail --name function-mcpagent --resource-group AIFoundry.StockTrading.RG`
+   - Verify functions listed in Azure Portal
+   - Restart: `az functionapp restart --name function-mcpagent --resource-group AIFoundry.StockTrading.RG`
 
 2. **Translation not working**:
-   - Verify Azure OpenAI endpoint and model deployment
-   - Check Managed Identity has proper role assignment
-   - Confirm DeepSeek-V3.1 model is deployed
+   - Verify AI Foundry endpoint in app settings
+   - Check managed identity has "Cognitive Services User" role
+   - Test model deployment in portal → Deployments
+   - Check Application Insights for errors
 
-3. **Agent import failures**:
-   - Ensure environment has required licenses
-   - Check for missing dependencies
-   - Verify solution compatibility
+3. **Cold start performance**:
+   - First request may take 2-5 seconds
+   - Increase `instanceMemoryMB` to 4096 in parameters
+   - Configure always-ready instances for production
 
-4. **Agent communication issues**:
+### Power Platform Issues
+
+1. **Agent import failures**:
+   - Ensure Copilot Studio licenses available
+   - Check solution dependencies
+   - Verify environment version compatibility
+
+2. **Agent communication issues**:
    - Verify connected agent configurations
-   - Check authentication settings
-   - Test individual agent endpoints
+   - Check MCP endpoint authentication
+   - Test Function App endpoint accessibility
+   - Review firewall rules
+
+### Getting Help
+
+- **Infrastructure**: See [infrastructure/README.md](infrastructure/README.md#troubleshooting)
+- **Validation**: Run `.\infrastructure\validate.ps1`
+- **Deployment Logs**: Azure Portal → Resource Group → Deployments
+- **Function Logs**: Application Insights or `az functionapp log tail`
 
 ## Development
 
@@ -520,13 +555,36 @@ func start
 # Use the MCP inspector or call endpoints directly
 ```
 
+## Infrastructure Files
+
+| File | Purpose | Documentation |
+|------|---------|---------------|
+| `infrastructure/main.bicep` | Complete infrastructure template | [Infrastructure README](infrastructure/README.md) |
+| `infrastructure/main.parameters.json` | Configuration parameters | Customize for your environment |
+| `infrastructure/deploy.ps1` | Automated deployment script | Run `.\deploy.ps1 -WhatIf` to preview |
+| `infrastructure/validate.ps1` | Pre-deployment validation | Checks template and parameters |
+| `infrastructure/README.md` | Detailed deployment guide | Step-by-step instructions |
+| `infrastructure/DEPLOYMENT-SUMMARY.md` | Deployment overview | Resource details and costs |
+| `infrastructure/PLAN-COMPARISON.md` | Hosting plan comparison | Flex Consumption vs others |
+
+## Key Technologies
+
+- **Azure Functions Flex Consumption** - Serverless compute with per-execution billing
+- **AI Foundry (Cognitive Services)** - DeepSeek-V3.1 model deployment
+- **Bicep** - Infrastructure-as-Code for Azure
+- **Model Context Protocol (MCP)** - Tool exposure framework
+- **.NET 8 Isolated Worker** - Modern Azure Functions runtime
+- **Managed Identity** - Passwordless authentication
+- **Application Insights** - Monitoring and diagnostics
+
 ## Contributing
 
 When contributing to this repository:
 1. Follow .NET coding standards for Azure Functions
-2. Follow Power Platform solution packaging best practices
-3. Test locally before committing
-4. Update documentation for any configuration changes
+2. Update Bicep templates for infrastructure changes
+3. Test Bicep deployments with `validate.ps1` before committing
+4. Follow Power Platform solution packaging best practices
+5. Update documentation for any configuration changes
 
 ## License
 
@@ -535,6 +593,9 @@ When contributing to this repository:
 ## Support
 
 For issues and questions:
+- **Infrastructure/Deployment**: See [infrastructure/README.md](infrastructure/README.md#troubleshooting)
+- **Function App**: Check Application Insights logs
+- **Power Platform**: Consult Copilot Studio documentation
 - Azure Function issues: Check Azure Portal diagnostics
 - Copilot Studio issues: Review Copilot Studio troubleshooting guides
 - Integration issues: Verify MCP protocol implementation
