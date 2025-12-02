@@ -7,6 +7,14 @@
 [![Bicep](https://img.shields.io/badge/IaC-Bicep-0078D4?logo=microsoftazure)](https://learn.microsoft.com/azure/azure-resource-manager/bicep/)
 [![AI Foundry](https://img.shields.io/badge/AI-DeepSeek%20V3.1-00A4EF)](https://azure.microsoft.com/en-us/products/ai-services)
 
+## 📺 Video Tutorial
+
+**Step-by-Step Guide to Create the Copilot Studio Solution**
+
+[![Watch the tutorial](https://img.shields.io/badge/YouTube-Watch%20Tutorial-red?logo=youtube)](https://youtu.be/D3e9zIIXh50)
+
+This video contains a comprehensive guide for building the Copilot Studio multi-agent solution from scratch.
+
 ## 🚀 Quick Start
 
 Deploy the complete infrastructure in ~8 minutes:
@@ -27,11 +35,19 @@ cd infrastructure
 
 ## Overview
 
-This repository contains a multi-agent system for stock trading and portfolio management, built using Microsoft Copilot Studio and Azure Functions with Infrastructure-as-Code (Bicep) deployment. The solution consists of:
+This repository contains a complete multi-agent system for stock trading and portfolio management, demonstrating enterprise-grade AI orchestration using Microsoft Copilot Studio and Azure Functions. The solution showcases:
 
-1. **Azure Function App (MCP Server)** - A Model Context Protocol (MCP) server providing tools for mathematical operations and AI-powered translation
-2. **Power Platform Solution** - A Copilot Studio solution with three interconnected agents for stock trading and portfolio management
-3. **Bicep Infrastructure** - Complete Infrastructure-as-Code templates for automated Azure deployment
+1. **Azure Function App (MCP Server)** - A Model Context Protocol (MCP) server providing tools for mathematical operations and AI-powered translation using Azure AI Foundry
+2. **Power Platform Solution (StockTradingSolution)** - A Copilot Studio solution with three specialized, interconnected agents working together for comprehensive portfolio management
+3. **Bicep Infrastructure** - Production-ready Infrastructure-as-Code templates for fully automated Azure deployment with security best practices
+
+**Solution Highlights:**
+- ✅ Multi-agent orchestration with specialized roles
+- ✅ Real-time stock market data integration
+- ✅ AI-powered translation and analysis
+- ✅ Serverless architecture with Azure Functions Flex Consumption
+- ✅ Managed Identity for passwordless authentication
+- ✅ Complete IaC deployment (~8 minutes)
 
 ## Architecture
 
@@ -104,40 +120,64 @@ The function uses:
 
 ### 2. Power Platform Solution - Copilot Studio Agents
 
-The `StockTradingSolution` contains three specialized agents working together:
+The `StockTradingSolution` is a complete Power Platform solution containing three specialized AI agents that work together in a coordinated orchestration pattern. Each agent has distinct responsibilities and capabilities, creating a robust multi-agent system for portfolio management.
 
 #### Agent 1: PortfolioManagerAgent (`jvz_agent`)
-- **Name**: PortfolioManagerAgent
-- **Purpose**: Main orchestrator agent that manages the portfolio and coordinates with other agents
+- **Role**: Main orchestrator and coordinator
+- **Purpose**: Acts as the central hub, managing the overall portfolio and delegating tasks to specialized agents
+- **Key Capabilities**:
+  - Orchestrates conversations between StockTraderAgent and InvestorAgent
+  - Makes high-level portfolio decisions
+  - Coordinates email notifications for portfolio updates
+  - Manages user interactions and conversation flow
 - **Configuration**:
-  - Generative Actions Enabled
-  - Agent Connectable
-  - GPT Settings with custom schema
-  - AI Settings: Model knowledge, file analysis, and semantic search enabled
+  - Generative Actions Enabled for dynamic responses
+  - Agent Connectable for inter-agent communication
+  - Custom GPT Settings with specialized schema
+  - AI Settings: Model knowledge, file analysis, semantic search
   - Authentication: Integrated (Entra ID)
 - **App ID**: b3a4333a-0bd7-4992-ad01-b77376053762
 
 #### Agent 2: StockTraderAgent (`jvz_agent_iA9-Jx`)
-- **Name**: StockTraderAgent
-- **Purpose**: Handles stock trading operations and market analysis
-- **Configuration**: Similar to PortfolioManagerAgent with specialized trading capabilities
-- **Integration**: Connected to external data sources (finance.yahoo.com, msn.com/money)
-- **Features**:
-  - Computer use action capabilities
-  - Web scraping for stock information
-  - Real-time market data integration
+- **Role**: Execution specialist
+- **Purpose**: Handles all stock trading operations, market analysis, and real-time data retrieval
+- **Key Capabilities**:
+  - Executes buy/sell trading operations
+  - Retrieves real-time market data from finance.yahoo.com and msn.com
+  - Computer use action for web scraping
+  - Market trend analysis and reporting
+- **Integration Points**:
+  - Connected to external financial data sources
+  - Web scraping capabilities for stock information
+  - Real-time price tracking
+- **Configuration**:
+  - Specialized trading capabilities
+  - External data source connectors configured
+  - Computer use actions enabled
 - **App ID**: c2f3052f-ecc2-47b3-b144-5b4893dc7b40
 
 #### Agent 3: InvestorAgent (`jvz_agent_w0713v`)
-- **Name**: InvestorAgent
-- **Purpose**: Provides investment advice and portfolio recommendations
-- **Configuration**: Focused on investment strategy and analysis
+- **Role**: Analysis and advisory specialist
+- **Purpose**: Provides investment advice, portfolio analysis, and strategic recommendations
+- **Key Capabilities**:
+  - Investment strategy formulation
+  - Portfolio risk analysis
+  - Market research and recommendations
+  - Long-term investment planning
+- **Configuration**:
+  - Focused on analytical and advisory functions
+  - Strategic decision-making capabilities
 - **App ID**: aadfae6b-5cac-4ea0-aef5-69de169fafe8
 
-#### Agent Orchestration
-- The PortfolioManagerAgent can invoke the other agents using connected agent task actions
-- Workflow set includes connector actions (Office365Outlook - Send an email)
-- Supports email notifications for portfolio updates
+#### Multi-Agent Orchestration Pattern
+The solution implements a sophisticated orchestration pattern where:
+- **PortfolioManagerAgent** acts as the orchestrator, delegating tasks to specialized agents
+- **Connected Agent Actions** enable seamless communication between agents
+- **Workflow Set** includes Office365Outlook connector for email notifications
+- **Shared Context** allows agents to maintain conversation continuity
+- **Task Delegation** ensures each agent operates within its specialty area
+
+This architecture ensures scalability, maintainability, and clear separation of concerns across the portfolio management system.
 
 ## Deployment
 
